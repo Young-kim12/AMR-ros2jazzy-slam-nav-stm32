@@ -22,25 +22,7 @@ An autonomous mobile robot (AMR) system designed for warehouse-to-shelf logistic
 
 ![COMMAND CENTER Architecture](architecture.svg)
 
-```mermaid
-graph TD
-    subgraph "Hardware Layer (STM32)"
-        A[Encoder DC Motor] <--> B[micro-ROS Client]
-        C[IMU Gyro Sensor] --> B
-    end
-    subgraph "Edge Gateway (Raspberry Pi 4B)"
-        B <-->|Serial DMA| D[micro-ROS Agent]
-        E[LiDAR] --> F[ROS2 Node]
-        D <--> F
-        F <--> G[Zenoh Bridge]
-    end
-    subgraph "Cloud & Desktop"
-        G <-->|WAN / Zenoh| H[Zenoh Router]
-        H <--> I[SLAM Toolbox / Nav2]
-        H <--> J[YOLO Inference]
-        I --> K[Foxglove / RViz Monitoring]
-    end
-```
+
 
 ---
 
