@@ -6,6 +6,8 @@ An autonomous mobile robot (AMR) system designed for warehouse-to-shelf logistic
 
 ---
 
+
+  
 ## 📌 Project Overview
 
 | Item | Detail |
@@ -18,6 +20,8 @@ An autonomous mobile robot (AMR) system designed for warehouse-to-shelf logistic
 
 ---
 
+
+
 ## 🏗️ System Architecture
 
 ![COMMAND CENTER Architecture](architecture.svg)
@@ -26,6 +30,7 @@ An autonomous mobile robot (AMR) system designed for warehouse-to-shelf logistic
 
 ---
 
+
 ## 🛠️ Tech Stack
 
 **Embedded**
@@ -33,6 +38,7 @@ An autonomous mobile robot (AMR) system designed for warehouse-to-shelf logistic
 - micro-ROS (ROS2 firmware framework for MCU)
 - FreeRTOS
 - UART / Serial DMA communication
+
 
 **Robotics**
 - ROS2 (Jazzy)
@@ -44,6 +50,7 @@ An autonomous mobile robot (AMR) system designed for warehouse-to-shelf logistic
 - YOLO (Object Detection)
 - Zenoh (DDS Bridge / WAN communication)
 
+
 **Tools**
 - Docker
 - Linux (Ubuntu)
@@ -54,12 +61,15 @@ An autonomous mobile robot (AMR) system designed for warehouse-to-shelf logistic
 
 ## 🔧 Key Development Highlights
 
+
 ### Hardware Debugging
 - Diagnosed erratic motor encoder readings caused by missing common ground between STM32 and motor driver; resolved by establishing proper ground connection and restoring stable motor control
+
 
 ### Software Debugging
 - Resolved `/joint_states` data contention between hardware driver and simulation nodes by separating launch file execution, enabling stable real-robot RViz integration
 - Diagnosed MCU-to-host communication failure via micro-ROS Agent by inspecting internal node topology; identified duplicate STM32 nodes as root cause and resolved through firmware configuration fix
+
 
 ### System Design
 - Implemented 3-layer architecture (STM32 MCU / Raspberry Pi Linux host / x86 monitoring server)
@@ -68,6 +78,8 @@ An autonomous mobile robot (AMR) system designed for warehouse-to-shelf logistic
 - Migrated full ROS2 stack from x86 to Raspberry Pi 4B for onboard edge computing
 
 ---
+
+
 
 ## 📁 Repository Structure
 
@@ -81,11 +93,14 @@ command_center/
 
 ---
 
+
 ## 🚀 Getting Started
 
 > ⚠️ Code upload in progress. Will be updated soon.
 
 ---
+
+
 
 ## 📷 Demo
 
