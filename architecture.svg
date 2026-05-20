@@ -1,0 +1,87 @@
+<svg width="100%" viewBox="0 0 680 580" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>COMMAND CENTER System Architecture</title>
+  <desc>Full 3-layer architecture: STM32 Hardware Layer, Raspberry Pi 4B Edge Gateway, x86 Cloud and Desktop</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- ── Layer 1: STM32 ── -->
+  <rect x="30" y="30" width="620" height="140" rx="14" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+  <text font-family="Arial" font-size="12" fill="#854F0B" x="50" y="52">Hardware Layer</text>
+  <text font-family="Arial" font-size="14" font-weight="600" fill="#633806" x="50" y="72">STM32F446RE</text>
+
+  <rect x="80" y="90" width="180" height="52" rx="8" fill="#FAC775" stroke="#BA7517" stroke-width="1"/>
+  <text font-family="Arial" font-size="13" font-weight="600" fill="#412402" x="170" y="114" text-anchor="middle">Encoder DC Motor</text>
+  <text font-family="Arial" font-size="11" fill="#633806" x="170" y="132" text-anchor="middle">Motor control</text>
+
+  <rect x="290" y="90" width="140" height="52" rx="8" fill="#FAC775" stroke="#BA7517" stroke-width="1"/>
+  <text font-family="Arial" font-size="13" font-weight="600" fill="#412402" x="360" y="114" text-anchor="middle">IMU Gyro</text>
+  <text font-family="Arial" font-size="11" fill="#633806" x="360" y="132" text-anchor="middle">Sensor</text>
+
+  <rect x="460" y="90" width="160" height="52" rx="8" fill="#FAC775" stroke="#BA7517" stroke-width="1"/>
+  <text font-family="Arial" font-size="13" font-weight="600" fill="#412402" x="540" y="114" text-anchor="middle">micro-ROS Client</text>
+  <text font-family="Arial" font-size="11" fill="#633806" x="540" y="132" text-anchor="middle">FreeRTOS</text>
+
+  <line x1="260" y1="116" x2="458" y2="116" stroke="#BA7517" stroke-width="1.2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <line x1="430" y1="116" x2="458" y2="116" stroke="#BA7517" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Arrow 1→2 -->
+  <line x1="540" y1="142" x2="540" y2="198" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text font-family="Arial" font-size="11" fill="#555" x="556" y="174">Serial DMA</text>
+
+  <!-- ── Layer 2: Raspberry Pi ── -->
+  <rect x="30" y="198" width="620" height="150" rx="14" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text font-family="Arial" font-size="12" fill="#085041" x="50" y="220">Edge Gateway</text>
+  <text font-family="Arial" font-size="14" font-weight="600" fill="#04342C" x="50" y="240">Raspberry Pi 4B</text>
+
+  <rect x="60" y="258" width="150" height="52" rx="8" fill="#5DCAA5" stroke="#0F6E56" stroke-width="1"/>
+  <text font-family="Arial" font-size="12" font-weight="600" fill="#04342C" x="135" y="280" text-anchor="middle">micro-ROS Agent</text>
+  <text font-family="Arial" font-size="11" fill="#085041" x="135" y="298" text-anchor="middle">DDS bridge</text>
+
+  <rect x="240" y="258" width="130" height="52" rx="8" fill="#5DCAA5" stroke="#0F6E56" stroke-width="1"/>
+  <text font-family="Arial" font-size="12" font-weight="600" fill="#04342C" x="305" y="280" text-anchor="middle">YDLidar X4</text>
+  <text font-family="Arial" font-size="11" fill="#085041" x="305" y="298" text-anchor="middle">LiDAR sensor</text>
+
+  <rect x="400" y="258" width="120" height="52" rx="8" fill="#5DCAA5" stroke="#0F6E56" stroke-width="1"/>
+  <text font-family="Arial" font-size="12" font-weight="600" fill="#04342C" x="460" y="280" text-anchor="middle">ROS2 Node</text>
+  <text font-family="Arial" font-size="11" fill="#085041" x="460" y="298" text-anchor="middle">ROS2 Jazzy</text>
+
+  <rect x="550" y="258" width="80" height="52" rx="8" fill="#5DCAA5" stroke="#0F6E56" stroke-width="1"/>
+  <text font-family="Arial" font-size="12" font-weight="600" fill="#04342C" x="590" y="280" text-anchor="middle">Zenoh</text>
+  <text font-family="Arial" font-size="11" fill="#085041" x="590" y="298" text-anchor="middle">Bridge</text>
+
+  <line x1="210" y1="284" x2="238" y2="284" stroke="#0F6E56" stroke-width="1.2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <line x1="370" y1="284" x2="398" y2="284" stroke="#0F6E56" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="520" y1="284" x2="548" y2="284" stroke="#0F6E56" stroke-width="1.2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+
+  <!-- Arrow 2→3 -->
+  <line x1="590" y1="310" x2="590" y2="368" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text font-family="Arial" font-size="11" fill="#555" x="606" y="342">WAN/Zenoh</text>
+
+  <!-- ── Layer 3: Cloud & Desktop ── -->
+  <rect x="30" y="368" width="620" height="185" rx="14" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text font-family="Arial" font-size="12" fill="#0C447C" x="50" y="390">Cloud &amp; Desktop</text>
+  <text font-family="Arial" font-size="14" font-weight="600" fill="#042C53" x="50" y="410">x86 Server</text>
+
+  <rect x="60" y="426" width="130" height="52" rx="8" fill="#85B7EB" stroke="#185FA5" stroke-width="1"/>
+  <text font-family="Arial" font-size="12" font-weight="600" fill="#042C53" x="125" y="448" text-anchor="middle">Zenoh Router</text>
+  <text font-family="Arial" font-size="11" fill="#0C447C" x="125" y="466" text-anchor="middle">Message bus</text>
+
+  <rect x="220" y="426" width="140" height="52" rx="8" fill="#85B7EB" stroke="#185FA5" stroke-width="1"/>
+  <text font-family="Arial" font-size="12" font-weight="600" fill="#042C53" x="290" y="448" text-anchor="middle">SLAM / Nav2</text>
+  <text font-family="Arial" font-size="11" fill="#0C447C" x="290" y="466" text-anchor="middle">Navigation</text>
+
+  <rect x="390" y="426" width="140" height="52" rx="8" fill="#85B7EB" stroke="#185FA5" stroke-width="1"/>
+  <text font-family="Arial" font-size="12" font-weight="600" fill="#042C53" x="460" y="448" text-anchor="middle">YOLO Inference</text>
+  <text font-family="Arial" font-size="11" fill="#0C447C" x="460" y="466" text-anchor="middle">Object detection</text>
+
+  <rect x="210" y="500" width="180" height="36" rx="8" fill="#85B7EB" stroke="#185FA5" stroke-width="1"/>
+  <text font-family="Arial" font-size="12" font-weight="600" fill="#042C53" x="300" y="522" text-anchor="middle">Foxglove / RViz</text>
+
+  <line x1="190" y1="452" x2="218" y2="452" stroke="#185FA5" stroke-width="1.2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <line x1="190" y1="462" x2="388" y2="462" stroke="#185FA5" stroke-width="1.2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <line x1="290" y1="478" x2="290" y2="498" stroke="#185FA5" stroke-width="1.2" marker-end="url(#arrow)"/>
+</svg>
