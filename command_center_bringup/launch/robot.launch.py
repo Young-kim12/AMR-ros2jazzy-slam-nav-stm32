@@ -16,8 +16,13 @@ def generate_launch_description():
 
     robot_description = xacro.process_file(xacro_path).toxml()
 
+    # micro-ROS 에이전트 (Docker)
     micro_ros_agent = ExecuteProcess(
-        cmd=['ros2', 'run', 'micro_ros_agent', 'micro_ros_agent',
+        cmd=['docker', 'run', '-it', '--rm',
+             '-v', '/dev:/dev',
+             '--privileged',
+             '--net=host',
+             'microros/micro-ros-agent:jazzy',
              'serial', '--dev', '/dev/ttyACM0', '-b', '115200'],
         output='screen'
     )
