@@ -1,0 +1,20 @@
+robot_node:
+  ros__parameters:
+    robot_id: 'AMR_01'
+    wheel_separation: 0.20
+    wheel_radius: 0.0325
+    invert_left_motor: false
+    invert_right_motor: false
+
+odometry_node:
+  ros__parameters:
+    wheel_separation: 0.20
+    wheel_radius: 0.0325
+    odom_frame: 'odom'
+    base_frame: 'base_link'
+    invert_left_motor: false
+    invert_right_motor: false
+
+robot_state_publisher:
+  ros__parameters:
+    use_sim_time: false

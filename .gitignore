@@ -1,0 +1,34 @@
+# ===== ROS2 빌드 산출물 (절대 커밋 금지) =====
+build/
+install/
+log/
+
+# ===== 라이다 SDK (별도 설치, 소스에 포함 X) =====
+YDLidar-SDK/
+
+# ===== 에디터/IDE =====
+.vscode/
+*.swp
+*~
+
+# ===== TF 디버그 출력물 =====
+frames_*.gv
+frames_*.pdf
+
+# ===== 잘못 생성된 빈 파일들 =====
+'intensities[index]'
+'ranges[index]'
+range_max
+range_min
+
+# ===== 개인 메모 =====
+옵시디언/
+scratch/
+
+# ===== 맵은 선택 (보통 올림, 용량 크면 제외) =====
+# maps/
+
+# ===== Python 캐시 =====
+__pycache__/
+*.pyc
+src/STM32-Motor
