@@ -60,8 +60,8 @@ class RobotNode(Node):
         angular = msg.angular.z
 
         # 차동 구동 역운동학 변환 (m/s 기준 바퀴 속도)
-        left_ms = linear + (angular * self.wheel_separation / 2.0)
-        right_ms = linear - (angular * self.wheel_separation / 2.0)
+        left_ms = linear - (angular * self.wheel_separation / 2.0)
+        right_ms = linear + (angular * self.wheel_separation / 2.0)
 
         # rad/s 변환 (STM32는 rad/s를 기대한다고 가정)
         left_rads = left_ms / self.wheel_radius
